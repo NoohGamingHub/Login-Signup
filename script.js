@@ -1,62 +1,38 @@
-// Initialize local storage users array
-if (!localStorage.getItem('users')) {
-    localStorage.setItem('users', JSON.stringify([]));
-  }
-  
-  // Select DOM elements
-  const signupBtn = document.getElementById('signupBtn');
-  const loginBtn = document.getElementById('loginBtn');
-  const message = document.getElementById('message');
-  
-  function showMessage(msg, isError = false) {
-    message.textContent = msg;
-    message.style.color = isError ? 'red' : 'green';
-  }
-  
-  signupBtn.addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-  
-    if (!validateEmail(email)) {
-      showMessage('Invalid email format.', true);
-      return;
-    }
-  
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const existingUser = users.find(user => user.email === email);
-  
-    if (existingUser) {
-      showMessage('Email already exists. Try logging in.', true);
-      return;
-    }
-  
-    users.push({ email, username, password });
-    localStorage.setItem('users', JSON.stringify(users));
-    showMessage('Sign-up successful!');
+document.addEventListener("DOMContentLoaded", () => {
+  const authForm = document.getElementById("authForm");
+  const toggleForm = document.getElementById("toggleForm");
+  const submitBtn = document.getElementById("submitBtn");
+
+  let isLogin = true;
+
+  toggleForm.addEventListener("click", () => {
+    isLogin = !isLogin;
+    submitBtn.textContent = isLogin ? "Login" : "Sign Up";
+    toggleForm.textContent = isLogin
+      ? "Sign Up"
+      : "Login";
+    document.querySelector(".switch").innerHTML = isLogin
+      ? "Don't have an account? <span id='toggleForm'>Sign Up</span>"
+      : "Already have an account? <span id='toggleForm'>Login</span>";
   });
-  
-  loginBtn.addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-  
-    if (!validateEmail(email)) {
-      showMessage('Invalid email format.', true);
-      return;
-    }
-  
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user => user.email === email && user.password === password);
-  
-    if (user) {
-      showMessage(`Welcome back, ${user.username}!`);
+
+  authForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Simple validation
+    if (email && password) {
+      if (isLogin) {
+        alert("Login Successful!");
+      } else {
+        alert("Sign Up Successful!");
+      }
+
+      // Redirect to a URL after login
+      window.location.href = "https://www.example.com"; // Replace with your desired URL
     } else {
-      showMessage('Invalid email or password.', true);
+      alert("Please fill in all fields");
     }
   });
-  
-  function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
-  
+});
