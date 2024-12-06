@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, #00FFFF, #Add8e6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ body {
   animation: slideDown 0.8s ease;
 }
 
-@keyframes slideDown {
+  @keyframes slideDown {
   0% {
     transform: translateY(-50px);
     opacity: 0;
@@ -47,7 +47,7 @@ body {
 }
 
 input {
-  background: rgba(255, 255, 255, 0.2);
+  background: #5F9EA0;
   border: none;
   padding: 10px;
   margin: 10px 0;
@@ -59,11 +59,11 @@ input {
 }
 
 input:focus {
-  background: rgba(255, 255, 255, 0.3);
+  background: #5F9EA0;
 }
 
 button {
-  background: #2575fc;
+  background: #5F9EA0;
   border: none;
   padding: 12px;
   border-radius: 5px;
