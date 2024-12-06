@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // Redirect to a URL after login
-      window.location.href = "https://www.example.com"; // Replace with your desired URL
+      window.location.href = "https://noohgaminghub.github.io/Games/"; // Replace with your desired URL
     } else {
       alert("Please fill in all fields");
     }
