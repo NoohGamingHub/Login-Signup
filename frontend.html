@@ -3,33 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login/Sign-Up</title>
+  <title>Login/Sign Up</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
     <div class="form-container">
-      <h1>Future Portal</h1>
-      <p class="subtext">Log in or Sign up to explore!</p>
-      <form id="authForm">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        
-        <div class="buttons">
-          <button type="button" id="signupBtn" class="btn">Sign Up</button>
-          <button type="button" id="loginBtn" class="btn">Login</button>
-        </div>
+      <h1 class="title">Welcome</h1>
+      <form id="authForm" class="form">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" id="submitBtn">Login</button>
+        <p class="switch">
+          Don't have an account? 
+          <span id="toggleForm">Sign Up</span>
+        </p>
       </form>
-      <p id="message" class="message"></p>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
